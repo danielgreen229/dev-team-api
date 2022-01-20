@@ -4,6 +4,8 @@
       <v-progress-circular style="position: fixed" v-if="isLoadingUsers" indeterminate color="primary"></v-progress-circular>
 
       <search @found='HideUsers' :users="users"/>
+
+      <auth />
    
       <v-container v-if="!hideUsers">
         <v-row no-gutters>
@@ -83,10 +85,11 @@ import _ from "lodash";
 import progressiveBar from "@/components/progressiveBar.vue"
 import attentionBar from "@/components/attentionBar.vue"
 import search from "@/components/search.vue"
+import auth from "@/components/auth.vue"
 
 export default {
   components : {
-    progressiveBar, attentionBar, search
+    progressiveBar, attentionBar, search, auth
   },
   name: 'Home',
     data() {
@@ -180,6 +183,7 @@ export default {
   position: fixed !important;
   bottom: 0 !important;
   width: 98% !important;
+  z-index: 25;
 }
 .list-enter-active, .list-leave-active {
   transition: all 1s;

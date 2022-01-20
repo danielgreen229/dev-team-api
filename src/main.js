@@ -28,9 +28,37 @@ Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 
-new Vue({
-  vuetify : new Vuetify(),
-  router,
-  store,
-  render: function (h) { return h(App) }
-}).$mount('#app')
+
+
+import firebase from 'firebase/app'
+import 'firebase/auth';
+
+
+
+
+let configApp = {
+  apiKey: "AIzaSyA_EdaXKzEQ_Yg1YnAl8ikzQDooFirlTis",
+  authDomain: "interview-5ac2c.firebaseapp.com",
+  projectId: "interview-5ac2c",
+}
+
+let adminApp = firebase.initializeApp(configApp)
+
+
+
+let app
+
+
+
+firebase.auth().onAuthStateChanged(() => {
+  if(!app) {
+  	console.log(app)
+	app = new Vue({
+  		router,
+  		store,
+  		vuetify : new Vuetify(),
+  		render: function (h) { return h(App) }
+		}).$mount('#app')
+	}
+})
+

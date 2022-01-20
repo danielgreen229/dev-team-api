@@ -9,7 +9,7 @@
         item-text="Id"
         item-value="Id"
         label="Search for a User by Id..."
-        class="py-0 my-4"
+        class="py-0 my-4 ml-12 mr-12"
       >
       </v-autocomplete>
   
